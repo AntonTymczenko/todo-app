@@ -202,7 +202,7 @@ app.delete('/users/me/token', authenticate, (req, res) => {
 })
 
 app.listen(PORT, () => {
-  console.log(`Started on port ${PORT} in ${NODE_ENV} mode`)
+  console.log(`Todo app: started on port ${PORT} in ${NODE_ENV} mode`)
 })
 
 module.exports = {app}
