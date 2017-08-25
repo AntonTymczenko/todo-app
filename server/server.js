@@ -38,7 +38,7 @@ app.get('/todos', authenticate, (req, res) => {
       })
     })
     .catch((err) => {
-      console.log(err)
+      if (NODE_ENV == 'development') {console.log(err.message)}
       res.status(400).send('Error')
     })
 })
@@ -60,7 +60,7 @@ app.post('/todos', authenticate, (req, res) => {
       res.status(200).send(doc)
     })
     .catch((err) => {
-      console.log(err)
+      if (NODE_ENV == 'development') {console.log(err.message)}
       res.status(400).send()
     })
 })
@@ -82,7 +82,7 @@ app.get('/todos/:id', authenticate, (req, res) => {
       res.status(200).send({todo})
     })
     .catch((err) => {
-      console.log(err)
+      if (NODE_ENV == 'development') {console.log(err.message)}
       res.status(500).send()
     })
 })
@@ -121,7 +121,7 @@ app.patch('/todos/:id', authenticate, (req, res)=>{
       res.status(200).send({todo})
     })
     .catch((err) => {
-      console.log(err)
+      if (NODE_ENV == 'development') {console.log(err.message)}
       res.status(500).send()
     })
 })
@@ -143,7 +143,7 @@ app.delete('/todos/:id', authenticate, (req, res) => {
       res.status(200).send({todo})
     })
     .catch((err) => {
-      console.log(err)
+      if (NODE_ENV == 'development') {console.log(err.message)}
       res.status(500).send()
     })
 })
@@ -163,7 +163,7 @@ app.post('/users', (req, res) => {
       res.header('x-auth', token).send(user)
     })
     .catch((err) => {
-      console.log(err)
+      if (NODE_ENV == 'development') {console.log(err.message)}
       res.status(400).send()
     })
 })
@@ -185,7 +185,7 @@ app.post('/users/login', (req, res) => {
          })
     })
     .catch((err) => {
-      console.log(err)
+      if (NODE_ENV == 'development') {console.log(err.message)}
       res.status(400).send()
     })
 })
@@ -196,7 +196,7 @@ app.delete('/users/me/token', authenticate, (req, res) => {
       res.status(200).send()
     })
     .catch((err) => {
-      console.log(err)
+      if (NODE_ENV == 'development') {console.log(err.message)}
       res.status(400).send()
     })
 })
